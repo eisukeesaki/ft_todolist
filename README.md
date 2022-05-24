@@ -1,3 +1,57 @@
+## tasks
+
+```
+
+tasks
+    using Node.js and Express.js, respond to HTTP GET / with 200
+    connect Node instance to PostgreSQL backend
+        pg
+            quickly read docs
+    create database and tables
+        create .sql
+
+```
+
+## issues
+```
+
+issues
+    data
+        database
+            create database `todolist`
+            create table users 
+            seed table users
+            create table todos
+            listen to incoming connections on a port
+        sessions
+            store
+                ?where
+                ?how
+    web API
+        implement request-response cycle
+            listen to HTTP requests
+                parse HTTP request payload
+                route requests to appropriate route controllers
+                    control routes
+                        CRUD operations on resources
+                            data querying
+                                PostgreSQL database
+                                    connect node instance to PostgreSQL backend process
+                                        read
+                                        write
+                        make HTTP responses
+    UI
+
+issues-optional
+    make it easy to do database migration
+
+```
+
+## architecure
+```
+```
+
+## mind maps
 ```
 
 resources accessible from UI
