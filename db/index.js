@@ -11,6 +11,10 @@ const config = {
 
 const pool = new Pool(config);
 
-const { selectNow } = require('./tests');
-selectNow(pool).catch(err => console.log(err.stack));
+module.exports = {
+  query: (text, params) => pool.query(text, params)
+}
+
+// const { selectNow } = require('./tests');
+// selectNow(pool).catch(err => console.log(err.stack));
 

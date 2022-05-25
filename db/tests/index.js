@@ -13,3 +13,11 @@ module.exports = {
   selectNow
 }
 
+/*
+
+copy following snippet into /db/index.js to quickly run a query test
+    const { selectNow } = require('./tests');
+    selectNow(pool).catch(err => console.log(err.stack));
+
+*/
+

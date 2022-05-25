@@ -4,7 +4,7 @@
 
 tasks
     create user routes
-        GET     /api/v0/users/:id
+        OK: GET     /api/v0/users/:id
             returns a single user that has an id of :id
         GET     /api/v0/users/new
             returns view that has an signup form
@@ -29,6 +29,11 @@ tasks
         create .sql
             OK: create database todos
             OK: creata table users
+
+tasks-sub
+    update routes
+        GET /users/:id
+            only return necessary data
 
 ```
 
@@ -169,6 +174,14 @@ PostgreSQL
         SERIAL
             PostgreSQL-specific datatype
                 create auto-incrementing column
+                
+Express.js
+    middleware stack
+        app._router.stack
+ 
+express-promise-router
+    same API as express router
+        except it allows use of async functions as route handlers
  
 ```
 
