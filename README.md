@@ -3,12 +3,23 @@
 ```
 
 tasks
+    create user routes
+        GET     /api/v0/users/:id
+            returns a single user that has an id of :id
+        GET     /api/v0/users/new
+            returns view that has an signup form
+        POST    /api/v0/users
+            creates new user with credentials entered in form
+        PUT     /api/v0/users/:id
+            updates specified user with credentials entered in form
+        DELETE  /api/v0/users/:id
+            destroys specified user
     OK: update migration file
         users
             add id column
     OK: create seeder file
     OK: seed users table
-    test SELECT FROM users
+    OK: test SELECT FROM users
         /db/index.js
     OK: using Node.js and Express.js, respond to HTTP GET / with 200
     OK: connect Node instance to PostgreSQL backend
@@ -25,8 +36,11 @@ tasks
 ```
 
 issues_specific
-    ./db/index.js
-        client.query() returns rejected promise
+    cannot qeury using pg.Client
+        ./db/index.js
+        refer to postgres logs
+    when to shutdown pool?
+        pool.end()
 
 issues
     data
