@@ -151,9 +151,14 @@ PostgreSQL
     libpq
         API
         engine for other APIs
+    datatypes
+        SERIAL
+            PostgreSQL-specific datatype
+                create auto-incrementing column
  
 ```
 
 ## resources
 - [libpq - C API to PostgreSQL](https://www.postgresql.org/docs/9.5/libpq.html)
+- [PostgreSQL SERIAL datatype](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL)
 - 
