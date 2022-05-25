@@ -3,11 +3,11 @@
 ```
 
 tasks
-    update migration file
+    OK: update migration file
         users
             add id column
-    create seeder file
-    seed users table
+    OK: create seeder file
+    OK: seed users table
     test SELECT FROM users
         /db/index.js
     OK: using Node.js and Express.js, respond to HTTP GET / with 200
