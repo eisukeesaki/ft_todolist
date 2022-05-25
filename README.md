@@ -3,17 +3,30 @@
 ```
 
 tasks
-    using Node.js and Express.js, respond to HTTP GET / with 200
-    connect Node instance to PostgreSQL backend
+    update migration file
+        users
+            add id column
+    create seeder file
+    seed users table
+    test SELECT FROM users
+        /db/index.js
+    OK: using Node.js and Express.js, respond to HTTP GET / with 200
+    OK: connect Node instance to PostgreSQL backend
         pg
-            quickly read docs
-    create database and tables
+            OK: quickly read docs
+    OK: create database and tables
         create .sql
+            OK: create database todos
+            OK: creata table users
 
 ```
 
 ## issues
 ```
+
+issues_specific
+    ./db/index.js
+        client.query() returns rejected promise
 
 issues
     data
@@ -127,4 +140,20 @@ operations on resources and URIs
             DELETE  /api/v0/sessions/:id
                 destroys specified session and redirects requester to /
       
+      
+database
+    transaction
+        query
+       
+PostgreSQL
+    logs
+        /usr/local/var/log/postgres.log
+    libpq
+        API
+        engine for other APIs
+ 
 ```
+
+## resources
+- [libpq - C API to PostgreSQL](https://www.postgresql.org/docs/9.5/libpq.html)
+- 
