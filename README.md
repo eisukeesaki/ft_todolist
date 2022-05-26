@@ -1,3 +1,27 @@
+## actors and roles
+```
+
+index.js
+    init express
+        app.js
+            parse request body
+            mount routes
+                /express/routes/index.js
+                    init and load routes into this scope
+                        <resource name>.routes.js
+                        instantiate new express-promise-router object
+                    mount routes to express instance
+                    ...
+            ...
+    init database
+        /db/index.js
+            load connection configuration
+            create connection pool
+            define pool.query wrapper function
+    start Node instance
+
+```
+
 ## tasks
 
 ```
@@ -91,15 +115,14 @@ main issues
                                         DELETE /sessions HTTP/1.1
                                 todos
                                     send all todos owned by owner_id
+                                        GET /todos HTTP/1.1
                                     update todo by id
                                         update value of completed field
                                             redirect to /
-                                            POST /todos/:id HTTP/1.1
-                                                relevant data in payload
+                                            POST /todos/:id HTTP/1.1 relevant data in payload
                                         destroy
                                             redirect to /
-                                            POST /todos/:id HTTP/1.1
-                                                empty payload
+                                            POST /todos/:id HTTP/1.1 empty payload
                             data querying
                                 PostgreSQL database
                                     connect node instance to PostgreSQL backend process
@@ -128,6 +151,8 @@ main issues
                         get redirected to home
 
 issues-optional
+    make use of Express.Routes.route() to clean up route definitions
+    make use of arrays and loops in routing code
     automate database migration
 
 ```
@@ -151,12 +176,22 @@ PostgreSQL
                 create auto-incrementing column
                 
 Express.js
+    routing
+        how app's endoints respond to requests
     middleware stack
         app._router.stack
     res.render()
         render view and sends rendered HTML string to client
         res.locals
             local variables for views
+    express instance
+        ...
+        mountpath
+        _router
+            params {}
+            _params []
+            stack [ [Layer], [Layer], ... ]
+
  
 express-promise-router
     same API as express router

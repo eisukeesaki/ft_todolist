@@ -15,3 +15,13 @@ module.exports = {
   query: (text, params) => pool.query(text, params)
 }
 
+/*
+
+    load db connection configs into this scope
+
+    create db connection pool
+
+    define wrapper function for pg's query method
+
+*/
+
