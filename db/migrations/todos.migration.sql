@@ -1,4 +1,5 @@
 CREATE TABLE IF NOT EXISTS todos (
+  id SERIAL PRIMARY KEY,
   owner_id INTEGER NOT NULL,
   title VARCHAR(32) NOT NULL,
   completed INTEGER
