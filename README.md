@@ -3,17 +3,15 @@
 ```
 
 tasks
-    create user routes
+    OK: database
+        OK: update database name to todolist
+        OK: create todos seeder file
+        OK: seed todos migration file
+    routes
+        write list of todos route handler function signatures
+    OK: create user routes
         OK: GET     /api/v0/users/:id
             returns a single user that has an id of :id
-        GET     /api/v0/users/new
-            returns view that has an signup form
-        POST    /api/v0/users
-            creates new user with credentials entered in form
-        PUT     /api/v0/users/:id
-            updates specified user with credentials entered in form
-        DELETE  /api/v0/users/:id
-            destroys specified user
     OK: update migration file
         users
             add id column

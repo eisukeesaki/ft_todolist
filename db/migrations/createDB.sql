@@ -1,2 +1,2 @@
-CREATE DATABASE todos;
-\c todos
+CREATE DATABASE todolist;
+\c todolist

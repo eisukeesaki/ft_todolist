@@ -15,6 +15,3 @@ module.exports = {
   query: (text, params) => pool.query(text, params)
 }
 
-// const { selectNow } = require('./tests');
-// selectNow(pool).catch(err => console.log(err.stack));
-
