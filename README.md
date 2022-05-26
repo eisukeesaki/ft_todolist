@@ -48,7 +48,7 @@ issues_specific
     when to shutdown pool?
         pool.end()
 
-issues
+main issues
     data
         database
             create database `todolist`
@@ -132,14 +132,47 @@ issues-optional
 
 ```
 
-## architecure
-```
-```
-
-## mind maps
+## knowledge base
 ```
 
-resources accessible from UI
+database
+    transaction
+        query
+       
+PostgreSQL
+    logs
+        /usr/local/var/log/postgres.log
+    libpq
+        API
+        engine for other APIs
+    datatypes
+        SERIAL
+            PostgreSQL-specific datatype
+                create auto-incrementing column
+                
+Express.js
+    middleware stack
+        app._router.stack
+    res.render()
+        render view and sends rendered HTML string to client
+        res.locals
+            local variables for views
+ 
+express-promise-router
+    same API as express router
+        except it allows use of async functions as route handlers
+
+```
+
+## resources
+- [libpq - C API to PostgreSQL](https://www.postgresql.org/docs/9.5/libpq.html)
+- [PostgreSQL SERIAL datatype](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL)
+- [res.locals - object whose properties define local variables for views](http://expressjs.com/en/api.html#res.locals)
+
+## other mind maps
+```
+
+resources accessible from UI (DEPRECATED)
     users
         single record
         registration view
@@ -154,7 +187,7 @@ resources accessible from UI
         login view
         authentication
         
-models
+models (DEPRECATED)
     user
         id: INTEGER
         email: STRING
@@ -176,7 +209,7 @@ models
         resave: BOOLEAN
         ...
         
-(DEPRECATED) operations on resources and URIs
+operations on resources and URIs (DEPRECATED)
     users
         HTTP
             GET     /api/v0/users/:id
@@ -211,38 +244,6 @@ models
                 authenticates credentials entered in form against database record
             DELETE  /api/v0/sessions/:id
                 destroys specified session and redirects requester to /
-      
-      
-database
-    transaction
-        query
-       
-PostgreSQL
-    logs
-        /usr/local/var/log/postgres.log
-    libpq
-        API
-        engine for other APIs
-    datatypes
-        SERIAL
-            PostgreSQL-specific datatype
-                create auto-incrementing column
-                
-Express.js
-    middleware stack
-        app._router.stack
-    res.render()
-        render view and sends rendered HTML string to client
-        res.locals
-            local variables for views
- 
-express-promise-router
-    same API as express router
-        except it allows use of async functions as route handlers
  
 ```
 
-## resources
-- [libpq - C API to PostgreSQL](https://www.postgresql.org/docs/9.5/libpq.html)
-- [PostgreSQL SERIAL datatype](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL)
-- [res.locals - object whose properties define local variables for views](http://expressjs.com/en/api.html#res.locals)
