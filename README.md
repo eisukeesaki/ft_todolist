@@ -28,10 +28,13 @@ tasks
             OK: create database todos
             OK: creata table users
 
-tasks-sub
-    update routes
-        GET /users/:id
-            only return necessary data
+tasks-all
+    create routes
+        todos
+            helper middleware
+                get all owned by owner_id
+            return all
+            update by owner_id
 
 ```
 
@@ -64,6 +67,39 @@ issues
                 route requests to appropriate route controllers
                     control routes
                         CRUD operations on resources
+                            routes
+                                /
+                                    render login view
+                                    render app view
+                                    GET / HTTP/1.1
+                                users
+                                    create new record in table users
+                                        use data in request payload
+                                        redirect to /
+                                        send error message
+                                        POST /users HTTP/1.1
+                                            INSERT INTO users (email, password)
+                                session
+                                    create new
+                                        compare credentials in request payload against record in database
+                                        create session
+                                        send session id
+                                        send error message
+                                        POST /sessions
+                                    destroy
+                                        redirect to /
+                                        DELETE /sessions HTTP/1.1
+                                todos
+                                    send all todos owned by owner_id
+                                    update todo by id
+                                        update value of completed field
+                                            redirect to /
+                                            POST /todos/:id HTTP/1.1
+                                                relevant data in payload
+                                        destroy
+                                            redirect to /
+                                            POST /todos/:id HTTP/1.1
+                                                empty payload
                             data querying
                                 PostgreSQL database
                                     connect node instance to PostgreSQL backend process
@@ -71,9 +107,28 @@ issues
                                         write
                         make HTTP responses
     UI
+        functions
+            show pages
+                login
+                    send credentials
+                    receive session id
+                    get redirected to app
+                    show authentication failure message
+                signup
+                    send new credentials
+                    send credentials
+                    get redirected to app
+                    show registration failure message
+                app
+                    show all todos
+                        show todo
+                            toggle completed
+                    create todo
+                    destroy session
+                        get redirected to home
 
 issues-optional
-    make it easy to do database migration
+    automate database migration
 
 ```
 
@@ -121,7 +176,7 @@ models
         resave: BOOLEAN
         ...
         
-operations on resources and URIs
+(DEPRECATED) operations on resources and URIs
     users
         HTTP
             GET     /api/v0/users/:id
@@ -176,6 +231,10 @@ PostgreSQL
 Express.js
     middleware stack
         app._router.stack
+    res.render()
+        render view and sends rendered HTML string to client
+        res.locals
+            local variables for views
  
 express-promise-router
     same API as express router
@@ -186,4 +245,4 @@ express-promise-router
 ## resources
 - [libpq - C API to PostgreSQL](https://www.postgresql.org/docs/9.5/libpq.html)
 - [PostgreSQL SERIAL datatype](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL)
-- 
+- [res.locals - object whose properties define local variables for views](http://expressjs.com/en/api.html#res.locals)
