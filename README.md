@@ -1,3 +1,6 @@
+# mind trace
+This file represents something like footprints of myself in my mind. Somestimes I intentionally leave obvious footprints for the benefits of my future self(and hopefully other people too), and or because I chose to temporarily unload references that doesn't require quick access off of my mind's working memory. Other times I just code away without leaving any trace.
+
 ## actors and roles
 ```
 
@@ -197,12 +200,112 @@ express-promise-router
     same API as express router
         except it allows use of async functions as route handlers
 
+curl
+    POST JSON
+        set request header
+            set representation header
+                indicate type of resource in payload
+                    Content-Type = MIME type = media type
+                        --header
+                            "Content-Type: application/json"
+                        -d
+                            shorthand for data
+                            implies POST request unlike --data
+                        example
+                            curl -v \
+                                --header Content-Type: application/json \
+                                -d {"email": "asuka@nerv.jp", "password": "letasukain"} \
+                                http://localhost:4242/api/v0/sessions
+
+HTTP(/S)
+    protocol
+        layer
+            application
+        feature
+            one question, one response
+                one request, one response
+            
+HTTP sessions
+    a solution
+        means to eliminate the need for clients to make authentication requests every time before they make any other requests
+    session data
+        association of user's account information and session identifier
+        storage location
+            backend database
+                sessions table
+                centralized maner
+                    server has full control
+                does not act against distribution of servers(i.e scaling)
+                requires extra hop
+                    relatively slow
+            server memory
+                fast
+                    does not require hop to backend database
+                scaling issues
+                    scaling
+                        distribution of server load
+                            having multiple server instances across different computing resources
+                                distribution of server instances
+                    session being stored on one particular server act against scaling of backend server
+            client-side
+                decentralized manner
+                methods for achievement
+                    use of
+                        JWT
+                            means of representing claims to be transferred between two parties
+                easy to implement
+                    no need to store, fetch, process on server side
+                server cannot immediately revoke/invalid user
+    transmission channel
+        HTTPS
+            
+web application attacks
+    SQL Injection
+    Cross Site Scripting (XSS)
+    Cross-Site Request Forgery (CSRF)
+        Attacker makes target's browser make malicious requests to arbitrary web applications on behalf of the target and without the target's permission(and oftenly, awareness).
+        prevention
+            HTML <form>s
+                CSRF Token
+
+web browsers
+    address field
+        GET
+    forms
+        POST
+        POST request template for users
+        some forms are exclusively meant to be used by authenticated users
+            ex. online-bank's wire transfer form
+    Cookies
+        read by server
+        4096 bytes per domain
+    Local Storage
+        only readable by client
+        5MB per domain
+        
+tools
+    be aware
+        what problem does it solve?
+        what does it abstract?
+        how does it work?
+            mechanism
+
+how to compare
+    set benchmark
+    do on subjects
+        investigate
+        examine
+        identify difference through the set benchmark
+    
 ```
 
 ## resources
+Some of the link titles are created by me, in order to enhace my accessibility to my reference points of knowledge in my mind. 
 - [libpq - C API to PostgreSQL](https://www.postgresql.org/docs/9.5/libpq.html)
 - [PostgreSQL SERIAL datatype](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL)
 - [res.locals - object whose properties define local variables for views](http://expressjs.com/en/api.html#res.locals)
+- [RFC on JWT](https://datatracker.ietf.org/doc/html/rfc7519)
+- [ways to implement HTTP session and a reasons not to use JWT for it](https://developpaper.com/please-stop-using-jwt-for-session-management-immediately/)
 
 ## other mind maps
 ```

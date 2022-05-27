@@ -4,6 +4,7 @@ const morgan = require('morgan');
 
 express.use(morgan('dev'));
 express.use(Express.urlencoded({ extended: true }));
+express.use(Express.json());
 // TODO: setup view engine - ejs
 express.set('views', `${__rootDir}/views`);
 express.set('view engine', 'ejs');
