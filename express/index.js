@@ -16,7 +16,7 @@ module.exports = express;
 
 /*
 
-    mount onto express instance
+    mount middlewares onto express instance
         request body parser
         routes
 

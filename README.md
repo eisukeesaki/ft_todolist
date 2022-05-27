@@ -5,7 +5,7 @@ This file is like a trace of my mind. I created it for several purposes.
 - organize the problem in order to solve it
 - for the benefit of my future self(and hopefully other people as well)
   - to use it as a knowledge base
-  - quickly remember the status of the project
+  - to quickly remember the status of the project
 
 It is not comprehensive.
 
@@ -168,7 +168,7 @@ Some of the link titles are created by me, in order to enhace my accessibility t
 - [PostgreSQL SERIAL datatype](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL)
 - [res.locals - object whose properties define local variables for views](http://expressjs.com/en/api.html#res.locals)
 - [RFC on JWT](https://datatracker.ietf.org/doc/html/rfc7519)
-- [ways to implement HTTP session and a reasons not to use JWT for it](https://developpaper.com/please-stop-using-jwt-for-session-management-immediately/)
+- [ways to implement HTTP session and reasons not to use JWT for it](https://developpaper.com/please-stop-using-jwt-for-session-management-immediately/)
 
 ## actors and roles
 
@@ -236,6 +236,8 @@ tasks-all
 ```
 
 ## issues
+
+How to build software.
 
 1. identify the problem(main issue) that you are trying to solve
 2. identiy the sub-issues that makes up the problem
