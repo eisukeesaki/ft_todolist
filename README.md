@@ -1,6 +1,6 @@
 # mind trace
 
-This file is like a trace of my mind. I created it for several purposes.
+This file is like a trace of my mind. I maintain it for several purposes.
 
 - organize the problem in order to solve it
 - for the benefit of my future self(and hopefully other people as well)
@@ -16,6 +16,7 @@ It is not comprehensive.
 - [actors and roles](#actors-and-roles)
 - [tasks](#tasks)
 - [issues](#issues)
+- [?](#?)
 - [other mind maps](#other-mind-maps)
 
 ## knowledge base
@@ -55,6 +56,9 @@ Express.js
             params {}
             _params []
             stack [ [Layer], [Layer], ... ]
+    pass control to next middleware in stack
+        next()
+        ?next('route')
 
  
 express-promise-router
@@ -74,8 +78,8 @@ curl
                             implies POST request unlike --data
                         example
                             curl -v \
-                                --header Content-Type: application/json \
-                                -d {"email": "asuka@nerv.jp", "password": "letasukain"} \
+                                --header "Content-Type: application/json" \
+                                -d '{"email": "asuka@nerv.jp", "password": "letasukain"}' \
                                 http://localhost:4242/api/v0/sessions
 
 HTTP(/S)
@@ -89,8 +93,15 @@ HTTP(/S)
 HTTP sessions
     a solution
         means to eliminate the need for clients to make authentication requests every time before they make any other requests
+    secret
+        key used to sign session identifier
     session data
         association of user's account information and session identifier
+            session identifier
+                saved on
+                    server
+                    backend database
+                    client's cookie
         storage location
             backend database
                 sessions table
@@ -150,6 +161,7 @@ tools
         what does it abstract?
         how does it work?
             mechanism
+    read, or at least skim through external libraries' source code and map own understanding of their mechanism 
 
 how to compare
     set benchmark
@@ -169,10 +181,20 @@ Some of the link titles are created by me, in order to enhace my accessibility t
 - [res.locals - object whose properties define local variables for views](http://expressjs.com/en/api.html#res.locals)
 - [RFC on JWT](https://datatracker.ietf.org/doc/html/rfc7519)
 - [ways to implement HTTP session and reasons not to use JWT for it](https://developpaper.com/please-stop-using-jwt-for-session-management-immediately/)
+- [Set-Cookie HTTP response header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
 
 ## actors and roles
 
 ```
+
+express-session
+    session middleware
+    session()
+        creates new session middleware
+connect-pg-simple
+    API used to abstract session store management
+    designed for PostgreSQL
+        
 
 index.js
     init express
@@ -339,6 +361,18 @@ issues-optional
     make use of Express.Routes.route() to clean up route definitions
     make use of arrays and loops in routing code
     automate database migration
+
+```
+
+## ?
+
+Things to investigate later.
+
+```
+
+Set-Cookie header set by ?express-session has additional values concatenated to req.sessionID.
+    what is it?
+    how is it generated?
 
 ```
 

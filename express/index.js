@@ -1,15 +1,27 @@
 const Express = require('express');
-const express = Express();
-const morgan = require('morgan');
+const Session = require('express-session');
+// const SessionStore
+const Morgan = require('morgan');
+const mountRoutes = require('./routes');
 
-express.use(morgan('dev'));
-express.use(Express.urlencoded({ extended: true }));
-express.use(Express.json());
-// TODO: setup view engine - ejs
+const express = Express();
+require('dotenv').config;
+
+express.use(Session({
+  // TODO: optimize options
+  secret: process.env.SESSION_SECRET,
+  name: 'sessionID',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxage: 30 * 24 * 60 * 60 * 1000 }
+  // store: // TODO: use sessions table in db as a session store 
+}));
+express.use(Morgan('dev'));
+express.use(Express.urlencoded({ extended: true })); // TODO: mount it only for routes that requires body parsing
+express.use(Express.json()); // TODO: mount it only for routes that requires body parsing
 express.set('views', `${__rootDir}/views`);
 express.set('view engine', 'ejs');
 
-const mountRoutes = require('./routes');
 mountRoutes(express);
 
 module.exports = express;
