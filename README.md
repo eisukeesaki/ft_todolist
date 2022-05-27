@@ -1,6 +1,13 @@
 # mind trace
 
-This file represents something like footprints of myself in my mind. Somestimes I intentionally leave obvious footprints for the benefits of my future self(and hopefully other people too), and or because I chose to temporarily unload references that doesn't require quick access off of my mind's working memory. Other times I just code away without leaving any trace.
+This file is like a trace of my mind. I created it for several purposes.
+
+- organize the problem in order to solve it
+- for the benefit of my future self(and hopefully other people as well)
+  - to use it as a knowledge base
+  - quickly remember the status of the project
+
+It is not comprehensive.
 
 ## Table of contents
 
