@@ -232,7 +232,11 @@ tasks-all
 
 ```
 
-issues_specific
+issues-specific
+    implement session management
+        ?express-session
+        store session data in server memory to get started
+        ?sessions table
     cannot qeury using pg.Client
         ./db/index.js
         refer to postgres logs
