@@ -1,172 +1,26 @@
 # mind trace
+
 This file represents something like footprints of myself in my mind. Somestimes I intentionally leave obvious footprints for the benefits of my future self(and hopefully other people too), and or because I chose to temporarily unload references that doesn't require quick access off of my mind's working memory. Other times I just code away without leaving any trace.
 
-## actors and roles
-```
+## Table of contents
 
-index.js
-    init express
-        app.js
-            parse request body
-            mount routes
-                /express/routes/index.js
-                    init and load routes into this scope
-                        <resource name>.routes.js
-                        instantiate new express-promise-router object
-                    mount routes to express instance
-                    ...
-            ...
-    init database
-        /db/index.js
-            load connection configuration
-            create connection pool
-            define pool.query wrapper function
-    start Node instance
-
-```
-
-## tasks
-
-```
-
-tasks
-    OK: database
-        OK: update database name to todolist
-        OK: create todos seeder file
-        OK: seed todos migration file
-    routes
-        write list of todos route handler function signatures
-    OK: create user routes
-        OK: GET     /api/v0/users/:id
-            returns a single user that has an id of :id
-    OK: update migration file
-        users
-            add id column
-    OK: create seeder file
-    OK: seed users table
-    OK: test SELECT FROM users
-        /db/index.js
-    OK: using Node.js and Express.js, respond to HTTP GET / with 200
-    OK: connect Node instance to PostgreSQL backend
-        pg
-            OK: quickly read docs
-    OK: create database and tables
-        create .sql
-            OK: create database todos
-            OK: creata table users
-
-tasks-all
-    create routes
-        todos
-            helper middleware
-                get all owned by owner_id
-            return all
-            update by owner_id
-
-```
-
-## issues
-```
-
-issues_specific
-    cannot qeury using pg.Client
-        ./db/index.js
-        refer to postgres logs
-    when to shutdown pool?
-        pool.end()
-
-main issues
-    data
-        database
-            create database `todolist`
-            create table users 
-            seed table users
-            create table todos
-            listen to incoming connections on a port
-        sessions
-            store
-                ?where
-                ?how
-    web API
-        implement request-response cycle
-            listen to HTTP requests
-                parse HTTP request payload
-                route requests to appropriate route controllers
-                    control routes
-                        CRUD operations on resources
-                            routes
-                                /
-                                    render login view
-                                    render app view
-                                    GET / HTTP/1.1
-                                users
-                                    create new record in table users
-                                        use data in request payload
-                                        redirect to /
-                                        send error message
-                                        POST /users HTTP/1.1
-                                            INSERT INTO users (email, password)
-                                session
-                                    create new
-                                        compare credentials in request payload against record in database
-                                        create session
-                                        send session id
-                                        send error message
-                                        POST /sessions
-                                    destroy
-                                        redirect to /
-                                        DELETE /sessions HTTP/1.1
-                                todos
-                                    send all todos owned by owner_id
-                                        GET /todos HTTP/1.1
-                                    update todo by id
-                                        update value of completed field
-                                            redirect to /
-                                            POST /todos/:id HTTP/1.1 relevant data in payload
-                                        destroy
-                                            redirect to /
-                                            POST /todos/:id HTTP/1.1 empty payload
-                            data querying
-                                PostgreSQL database
-                                    connect node instance to PostgreSQL backend process
-                                        read
-                                        write
-                        make HTTP responses
-    UI
-        functions
-            show pages
-                login
-                    send credentials
-                    receive session id
-                    get redirected to app
-                    show authentication failure message
-                signup
-                    send new credentials
-                    send credentials
-                    get redirected to app
-                    show registration failure message
-                app
-                    show all todos
-                        show todo
-                            toggle completed
-                    create todo
-                    destroy session
-                        get redirected to home
-
-issues-optional
-    make use of Express.Routes.route() to clean up route definitions
-    make use of arrays and loops in routing code
-    automate database migration
-
-```
+- [knowledge base](#knowledge-base)
+- [remote resources](#remote-resources)
+- [actors and roles](#actors-and-roles)
+- [tasks](#tasks)
+- [issues](#issues)
+- [other mind maps](#other-mind-maps)
 
 ## knowledge base
+
+What this project led me to understand or remind me of.
+
 ```
 
 database
     transaction
         query
-       
+
 PostgreSQL
     logs
         /usr/local/var/log/postgres.log
@@ -299,15 +153,179 @@ how to compare
     
 ```
 
-## resources
+## remote resources
+
 Some of the link titles are created by me, in order to enhace my accessibility to my reference points of knowledge in my mind. 
+
 - [libpq - C API to PostgreSQL](https://www.postgresql.org/docs/9.5/libpq.html)
 - [PostgreSQL SERIAL datatype](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL)
 - [res.locals - object whose properties define local variables for views](http://expressjs.com/en/api.html#res.locals)
 - [RFC on JWT](https://datatracker.ietf.org/doc/html/rfc7519)
 - [ways to implement HTTP session and a reasons not to use JWT for it](https://developpaper.com/please-stop-using-jwt-for-session-management-immediately/)
 
+## actors and roles
+
+```
+
+index.js
+    init express
+        app.js
+            parse request body
+            mount routes
+                /express/routes/index.js
+                    init and load routes into this scope
+                        <resource name>.routes.js
+                        instantiate new express-promise-router object
+                    mount routes to express instance
+                    ...
+            ...
+    init database
+        /db/index.js
+            load connection configuration
+            create connection pool
+            define pool.query wrapper function
+    start Node instance
+
+```
+
+## tasks
+
+```
+
+tasks
+    OK: database
+        OK: update database name to todolist
+        OK: create todos seeder file
+        OK: seed todos migration file
+    routes
+        write list of todos route handler function signatures
+    OK: create user routes
+        OK: GET     /api/v0/users/:id
+            returns a single user that has an id of :id
+    OK: update migration file
+        users
+            add id column
+    OK: create seeder file
+    OK: seed users table
+    OK: test SELECT FROM users
+        /db/index.js
+    OK: using Node.js and Express.js, respond to HTTP GET / with 200
+    OK: connect Node instance to PostgreSQL backend
+        pg
+            OK: quickly read docs
+    OK: create database and tables
+        create .sql
+            OK: create database todos
+            OK: creata table users
+
+tasks-all
+    create routes
+        todos
+            helper middleware
+                get all owned by owner_id
+            return all
+            update by owner_id
+
+```
+
+## issues
+
+```
+
+issues_specific
+    cannot qeury using pg.Client
+        ./db/index.js
+        refer to postgres logs
+    when to shutdown pool?
+        pool.end()
+
+main issues
+    data
+        database
+            create database `todolist`
+            create table users 
+            seed table users
+            create table todos
+            listen to incoming connections on a port
+        sessions
+            store
+                ?where
+                ?how
+    web API
+        implement request-response cycle
+            listen to HTTP requests
+                parse HTTP request payload
+                route requests to appropriate route controllers
+                    control routes
+                        CRUD operations on resources
+                            routes
+                                /
+                                    render login view
+                                    render app view
+                                    GET / HTTP/1.1
+                                users
+                                    create new record in table users
+                                        use data in request payload
+                                        redirect to /
+                                        send error message
+                                        POST /users HTTP/1.1
+                                            INSERT INTO users (email, password)
+                                session
+                                    create new
+                                        compare credentials in request payload against record in database
+                                        create session
+                                        send session id
+                                        send error message
+                                        POST /sessions
+                                    destroy
+                                        redirect to /
+                                        DELETE /sessions HTTP/1.1
+                                todos
+                                    send all todos owned by owner_id
+                                        GET /todos HTTP/1.1
+                                    update todo by id
+                                        update value of completed field
+                                            redirect to /
+                                            POST /todos/:id HTTP/1.1 relevant data in payload
+                                        destroy
+                                            redirect to /
+                                            POST /todos/:id HTTP/1.1 empty payload
+                            data querying
+                                PostgreSQL database
+                                    connect node instance to PostgreSQL backend process
+                                        read
+                                        write
+                        make HTTP responses
+    UI
+        functions
+            show pages
+                login
+                    send credentials
+                    receive session id
+                    get redirected to app
+                    show authentication failure message
+                signup
+                    send new credentials
+                    send credentials
+                    get redirected to app
+                    show registration failure message
+                app
+                    show all todos
+                        show todo
+                            toggle completed
+                    create todo
+                    destroy session
+                        get redirected to home
+
+issues-optional
+    make use of Express.Routes.route() to clean up route definitions
+    make use of arrays and loops in routing code
+    automate database migration
+
+```
+
 ## other mind maps
+
 ```
 
 resources accessible from UI (DEPRECATED)
@@ -384,4 +402,3 @@ operations on resources and URIs (DEPRECATED)
                 destroys specified session and redirects requester to /
  
 ```
-
