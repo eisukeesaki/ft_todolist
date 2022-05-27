@@ -230,6 +230,11 @@ tasks-all
 
 ## issues
 
+1. identify the problem(main issue) that you are trying to solve
+2. identiy the sub-issues that makes up the problem
+3. repeat the previous step until you know the exact solution for the particular issue
+4. code
+
 ```
 
 issues-specific
