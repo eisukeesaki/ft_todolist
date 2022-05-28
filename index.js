@@ -7,7 +7,7 @@ const PORT = 4242; // TODO: read port from env vars
 require('./db');
 
 express.listen(PORT, () => {
-  console.log(`server is listening to port ${PORT}`);
+  console.log(`server is listening to port ${PORT}\n`);
 });
 
 global.stringifyJSON = require('json-stringify-safe'); // for debugging

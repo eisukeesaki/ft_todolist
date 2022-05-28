@@ -20,8 +20,6 @@ function createSession(req, res) {
     req.session.save((err) => {
       if (err) next(err);
 
-      console.log(`req.session.user:${JSON.stringify(req.session.user)}`);
-      console.log(`req.sessionID:${req.sessionID}`);
       res.redirect(200, '/');
     });
   });

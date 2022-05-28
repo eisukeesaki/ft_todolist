@@ -3,6 +3,8 @@ const session = require('express-session');
 // const SessionStore
 const morgan = require('morgan');
 const mountRoutes = require('./routes');
+const printSession = require('./utils/debugging/printSession');
+const printSessionID = require('./utils/debugging/printSessionID');
 
 const express = Express();
 require('dotenv').config;
@@ -21,6 +23,8 @@ express.use(Express.urlencoded({ extended: true })); // TODO: mount it only for 
 express.use(Express.json()); // TODO: mount it only for routes that requires body parsing
 express.set('views', `${__rootDir}/views`);
 express.set('view engine', 'ejs');
+express.use(printSession);
+express.use(printSessionID);
 
 mountRoutes(express);
 

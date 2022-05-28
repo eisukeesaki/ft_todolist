@@ -202,7 +202,7 @@ Some of the link titles are created by me, in order to enhace my accessibility t
 
 tasks
     implement middleware
-        isAuthenticated
+        OK: isAuthenticated
             compare
                 req.cookies == req.sessionID
                     matched
@@ -210,7 +210,7 @@ tasks
                     not matched
                         redirect /
     implement routes
-        /
+        OK: /
           GET
               if authed, render app view
               else render login view
