@@ -1,9 +1,14 @@
-const Router = require('express-promise-router');
-const db = require('../../db');
-const router = new Router();
+const db = require(__rootDir + '/db');
 
-router.post('/', async (req, res) => {
-  // console.log(`req.body.email:${JSON.stringify(req.body.email)}`);
+function isAuthenticated(req, res, next) {
+  if (req.session.user) next();
+  else next('route');
+  // if (req.cookies == req.session.)
+}
+
+async function authenticate(req, res) {
+  // console.log(`req.body:${JSON.stringify(req.body)}`);
+  console.log(`req:${__toString(req, null, 2)}`);
   const queryStr = 'SELECT password from users where email = $1';
   const queryParams = [req.body.email];
   const pwd = (await db.query(queryStr, queryParams)).rows[0].password;
@@ -24,20 +29,10 @@ router.post('/', async (req, res) => {
   } else {
       res.redirect(401, '/');
     }
-});
+}
 
-module.exports = router;
-
-/*
-
-    express-promise-router
-        what
-            identical to express.Router() except it allows use of async/await for route handler functions
-        instantiate
-        initialize
-            route definitions
-                mountpaths
-                handler functions
-
-*/
+module.exports = {
+  isAuthenticated,
+  authenticate
+}
 

@@ -1,13 +1,13 @@
 const Express = require('express');
-const Session = require('express-session');
+const session = require('express-session');
 // const SessionStore
-const Morgan = require('morgan');
+const morgan = require('morgan');
 const mountRoutes = require('./routes');
 
 const express = Express();
 require('dotenv').config;
 
-express.use(Session({
+express.use(session({
   // TODO: optimize options
   secret: process.env.SESSION_SECRET,
   name: 'sessionID',
@@ -16,7 +16,7 @@ express.use(Session({
   cookie: { maxage: 30 * 24 * 60 * 60 * 1000 }
   // store: // TODO: use sessions table in db as a session store 
 }));
-express.use(Morgan('dev'));
+express.use(morgan('dev'));
 express.use(Express.urlencoded({ extended: true })); // TODO: mount it only for routes that requires body parsing
 express.use(Express.json()); // TODO: mount it only for routes that requires body parsing
 express.set('views', `${__rootDir}/views`);

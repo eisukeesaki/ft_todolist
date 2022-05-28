@@ -1,11 +1,12 @@
-const router = require('express').Router();
+const rootRouter = require('express').Router();
+const { isAuthenticated } = require('../sessions/sessions.controller');
 
-router.get('/', (req, res) => {
+rootRouter.get('/', isAuthenticated, (req, res) => {
   console.log(`req.sessionID:${JSON.stringify(req.sessionID)}`);
   res.render('login')
 }); // TODO: use conditional statements to render either login or app
 
-module.exports = router;
+module.exports = rootRouter;
 
 /*
 

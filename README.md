@@ -133,7 +133,16 @@ HTTP sessions
                     no need to store, fetch, process on server side
                 server cannot immediately revoke/invalid user
     transmission channel
-        HTTPS
+        application layer
+            HTTPS
+    libraries
+        express-session
+            session middleware
+            session()
+                creates new session middleware
+        connect-pg-simple
+            API used to abstract session store management
+            designed for PostgreSQL
             
 web application attacks
     SQL Injection
@@ -167,7 +176,7 @@ tools
             mechanism
     read, or at least skim through external libraries' source code and map own understanding of their mechanism 
 
-how to compare
+how to compare subjects
     set benchmark
     do on subjects
         investigate
@@ -186,40 +195,6 @@ Some of the link titles are created by me, in order to enhace my accessibility t
 - [RFC on JWT](https://datatracker.ietf.org/doc/html/rfc7519)
 - [ways to implement HTTP session and reasons not to use JWT for it](https://developpaper.com/please-stop-using-jwt-for-session-management-immediately/)
 - [Set-Cookie HTTP response header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
-
-## actors and roles
-
-```
-
-express-session
-    session middleware
-    session()
-        creates new session middleware
-connect-pg-simple
-    API used to abstract session store management
-    designed for PostgreSQL
-        
-
-index.js
-    init express
-        app.js
-            parse request body
-            mount routes
-                /express/routes/index.js
-                    init and load routes into this scope
-                        <resource name>.routes.js
-                        instantiate new express-promise-router object
-                    mount routes to express instance
-                    ...
-            ...
-    init database
-        /db/index.js
-            load connection configuration
-            create connection pool
-            define pool.query wrapper function
-    start Node instance
-
-```
 
 ## tasks
 
@@ -256,6 +231,7 @@ tasks
                             INSERT INTO todos (fields to update) WHERE id = req.params.id
                         does not exist
                             DELETE FROM todos where id = req.params.id
+        prefix all router instances' names with relevant route names
     OK: database
         OK: update database name to todolist
         OK: create todos seeder file
@@ -281,28 +257,30 @@ tasks
             OK: create database todos
             OK: creata table users
 
-tasks-all
-    create routes
-        todos
-            helper middleware
-                get all owned by owner_id
-            return all
-            update by owner_id
+tasks-low-priority
+    make use of Express.Routes.route() to clean up route definitions
+    make use of arrays and loops in routing code
+    automate database migration
 
 ```
 
 ## issues
 
-How to build software.
-
-1. identify the problem(main issue) that you are trying to solve
-2. identiy the sub-issues that makes up the problem
-3. repeat the previous step until you know the exact solution for the particular issue
-4. code
+- identify the main issue that you are trying to solve
+- define minimum viable solution
+- recursively break down the main issue into smaller, more specific sub-issues until you know the exact code-level solution for a particular issue
+- code
+  - code a little, test a little, repeat
+      - sizeof "little" will incrementally become larger as your skill develops
+- reassess issues
+- repeat
 
 ```
 
 issues-specific
+    when POSTing form data to /sessions, req.body is undefined
+        does not happen with urlencoded or json data
+    cannot reference form data in request 
     implement session management
         ?express-session
         store session data in server memory to get started
@@ -391,11 +369,8 @@ main issues
                     create todo
                     destroy session
                         get redirected to home
-
-issues-optional
-    make use of Express.Routes.route() to clean up route definitions
-    make use of arrays and loops in routing code
-    automate database migration
+        EJS
+            build client-side-rendered UI in future versions
 
 ```
 
@@ -489,3 +464,4 @@ operations on resources and URIs (DEPRECATED)
                 destroys specified session and redirects requester to /
  
 ```
+

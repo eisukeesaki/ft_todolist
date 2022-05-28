@@ -1,4 +1,5 @@
 global.__rootDir = __dirname;
+global.__toString = require('json-stringify-safe');
 
 const express = require('./express');
 const PORT = 4242; // TODO: read port from env vars

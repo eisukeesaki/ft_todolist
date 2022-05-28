@@ -1,13 +1,10 @@
 const Router = require('express-promise-router');
-const db = require('../../db');
-const router = new Router();
+const sessionsController = require('./sessions.controller');
+const sessionsRouter = new Router();
 
-router.get('/:id', async (req, res) => {
-  const rows = await db.query('SELECT * FROM users WHERE id = $1', [req.params.id]);
-  res.send(rows.rows[0]);
-});
+sessionsRouter.post('/', sessionsController.authenticate);
 
-module.exports = router;
+module.exports = sessionsRouter;
 
 /*
 
