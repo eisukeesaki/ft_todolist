@@ -23,6 +23,7 @@ express.use(Express.urlencoded({ extended: true })); // TODO: mount it only for 
 express.use(Express.json()); // TODO: mount it only for routes that requires body parsing
 express.set('views', `${__rootDir}/views`);
 express.set('view engine', 'ejs');
+
 express.use(printSession);
 express.use(printSessionID);
 

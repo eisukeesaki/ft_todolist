@@ -201,7 +201,7 @@ Some of the link titles are created by me, in order to enhace my accessibility t
 ```
 
 tasks
-    implement middleware
+    OK: implement middleware
         OK: isAuthenticated
             compare
                 req.cookies == req.sessionID
@@ -212,9 +212,9 @@ tasks
     implement routes
         OK: /
           GET
-              if authed, render app view
+              if authed, render index view
               else render login view
-        sessions DELETE
+        OK: sessions DELETE
             destroy session data from store
             redirect /
         /todos
@@ -313,7 +313,7 @@ main issues
                             routes
                                 /
                                     render login view
-                                    render app view
+                                    render index view
                                     GET / HTTP/1.1
                                 users
                                     create new record in table users

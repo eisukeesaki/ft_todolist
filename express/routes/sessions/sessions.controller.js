@@ -25,16 +25,25 @@ function createSession(req, res) {
   });
 }
 
+function destroySession(req, res) {
+  req.session.destroy((err) => {
+    if (err) next(err);
+
+    res.redirect(200, '/');
+  });
+}
+
 function isAuthenticated(req, res, next) {
   if (req.session.user) next();
   else {
-    res.redirect(401, '/');
+    res.render('login');
   }
 }
 
 module.exports = {
   authenticate,
   isAuthenticated,
-  createSession
+  createSession,
+  destroySession
 }
 

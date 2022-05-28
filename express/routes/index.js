@@ -7,7 +7,6 @@ function mountRoutes(express) {
 
   express.use(basePath, rootRouter);
   express.use(`${basePath}/sessions`, sessionsRouter);
-  express.use(`${basePath}/sessions`, sessionsRouter);
   express.use(`${basePath}/users`, usersRouter);
 }
 

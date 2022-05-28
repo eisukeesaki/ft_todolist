@@ -10,7 +10,7 @@ express.listen(PORT, () => {
   console.log(`server is listening to port ${PORT}\n`);
 });
 
-global.stringifyJSON = require('json-stringify-safe'); // for debugging
+global.stringifyJSON = require('json-stringify-safe'); // debug
 
 /*
 
