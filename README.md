@@ -66,6 +66,10 @@ express-promise-router
         except it allows use of async functions as route handlers
 
 curl
+    set Cookie request header
+        --cookie
+        example
+            curl -v --cookie "USER_TOKEN=Yes" http://127.0.0.1:5000/
     POST JSON
         set request header
             set representation header
@@ -222,6 +226,36 @@ index.js
 ```
 
 tasks
+    implement middleware
+        isAuthenticated
+            compare
+                req.cookies == req.sessionID
+                    matched
+                        next()
+                    not matched
+                        redirect /
+    implement routes
+        /
+          GET
+              if authed, render app view
+              else render login view
+        sessions DELETE
+            destroy session data from store
+            redirect /
+        /todos
+            POST
+                authed
+                    INSERT INTO todos (owner_id, title, completed)
+                !authed
+                    respond with unauthorized
+                    redirect /
+            /:id
+                PUT
+                    todo resource in payload
+                        exists
+                            INSERT INTO todos (fields to update) WHERE id = req.params.id
+                        does not exist
+                            DELETE FROM todos where id = req.params.id
     OK: database
         OK: update database name to todolist
         OK: create todos seeder file
@@ -315,6 +349,7 @@ main issues
                                         compare credentials in request payload against record in database
                                         create session
                                         send session id
+                                            set Set-Cookie response header
                                         send error message
                                         POST /sessions
                                     destroy
