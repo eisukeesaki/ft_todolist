@@ -2,7 +2,7 @@ const Router = require('express-promise-router');
 const sessionsController = require('./sessions.controller');
 const sessionsRouter = new Router();
 
-sessionsRouter.post('/', sessionsController.authenticate);
+sessionsRouter.post('/', sessionsController.authenticate, sessionsController.createSession);
 
 module.exports = sessionsRouter;
 
