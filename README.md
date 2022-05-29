@@ -23,7 +23,7 @@ It is not comprehensive.
 
 What this project led me to understand or remind me of.
 
-```
+```text
 
 database
     transaction
@@ -187,7 +187,7 @@ how to compare subjects
 
 ## remote resources
 
-Some of the link titles are created by me, in order to enhace my accessibility to my reference points of knowledge in my mind. 
+Some of the link titles are created by me, in order to enhace my accessibility to my reference points of knowledge in my mind.
 
 - [libpq - C API to PostgreSQL](https://www.postgresql.org/docs/9.5/libpq.html)
 - [PostgreSQL SERIAL datatype](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL)
@@ -198,7 +198,7 @@ Some of the link titles are created by me, in order to enhace my accessibility t
 
 ## tasks
 
-```
+```text
 
 tasks
     OK: implement middleware
@@ -271,11 +271,11 @@ tasks-low-priority
 - recursively break down the main issue into smaller, more specific sub-issues until you know the exact code-level solution for a particular issue
 - code
   - code a little, test a little, repeat
-      - sizeof "little" will incrementally become larger as your skill develops
+    - sizeof "little" will incrementally become larger as your skill develops
 - reassess issues
 - repeat
 
-```
+```text
 
 issues-specific
     when POSTing form data to /sessions, req.body is undefined
@@ -378,7 +378,11 @@ main issues
 
 Things to investigate later.
 
-```
+```text
+How to log SQL statements that node-postgres is sending to PostgreSQL backend
+    pool.query
+        intercept
+        monkey patch
 
 when making queries to PostgreSQL via node-postgres, logs of database activities are not written to /usr/local/var/log/postgres.log. the logs are written when querying from psql.
     why?
@@ -391,7 +395,7 @@ Set-Cookie header set by ?express-session has additional values concatenated to 
 
 ## other mind maps
 
-```
+```text
 
 resources accessible from UI (DEPRECATED)
     users
