@@ -7,16 +7,15 @@ This file is like a trace of my mind. I maintain it for several purposes.
   - to use it as a knowledge base
   - to quickly remember the status of the project
 
-It is not comprehensive.
+It is not intended to be comprehensive.
 
 ## Table of contents
 
 - [knowledge base](#knowledge-base)
 - [remote resources](#remote-resources)
-- [actors and roles](#actors-and-roles)
 - [tasks](#tasks)
 - [issues](#issues)
-- [?](#?)
+- [investigate later](#investigate-later)
 - [other mind maps](#other-mind-maps)
 
 ## knowledge base
@@ -374,7 +373,7 @@ main issues
 
 ```
 
-## ?
+## investigate later
 
 Things to investigate later.
 
@@ -471,4 +470,3 @@ operations on resources and URIs (DEPRECATED)
                 destroys specified session and redirects requester to /
  
 ```
-
