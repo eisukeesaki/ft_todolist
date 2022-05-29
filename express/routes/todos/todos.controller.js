@@ -1,14 +1,16 @@
 const db = require(__rootDir + '/db');
 
 async function insert(req, res) {
-  // const queryStr = 'INSERT INTO todos (owner_id, title, completed) VALUES ($1, $2, $3)';
-  // const queryStr = "INSERT INTO todos (owner_id, title, completed) VALUES (50, 'do sth', 0)";
-  // const queryParams = [req.session.uid, req.body.title, req.body.completed];
-  // const record = await db.query(queryStr);
-  // const record = await db.query(queryStr, queryParams);
+  try {
+    const queryStr = 'INSERT INTO todos(owner_id, title, completed) VALUES($1, $2, $3)';
+    const queryParams = [req.session.uid, req.body.title, req.body.completed];
 
-  // console.log(`record:\n${JSON.stringify(record, null, 2)}`);
-  res.end();
+    await db.query(queryStr, queryParams);
+
+    res.end();
+  } catch (error) {
+    console.log(error.stack);
+  }
 }
 
 module.exports = {

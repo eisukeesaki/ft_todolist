@@ -17,6 +17,20 @@ module.exports = {
 }
 
 // module.exports = {
+//   query: (string, params) => poolQuery(string, params)
+// }
+
+// module.exports = {
+//   query
+// }
+
+// function poolQuery(string, params) {
+//   console.log('querying...');
+//   console.log(`${string}\n${params}\n`);
+//   pool.query(string, params);
+// }
+
+// module.exports = {
 //   query: function (string, params) {
 //     console.log(`pool:\n${JSON.stringify(pool)}`);
 //     pool.query(string, params);

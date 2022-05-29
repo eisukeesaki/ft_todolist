@@ -380,6 +380,9 @@ Things to investigate later.
 
 ```
 
+when making queries to PostgreSQL via node-postgres, logs of database activities are not written to /usr/local/var/log/postgres.log. the logs are written when querying from psql.
+    why?
+
 Set-Cookie header set by ?express-session has additional values concatenated to req.sessionID.
     what is it?
     how is it generated?
