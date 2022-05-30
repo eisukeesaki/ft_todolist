@@ -15,7 +15,7 @@ It is not intended to be comprehensive.
 - [remote resources](#remote-resources)
 - [tasks](#tasks)
 - [issues](#issues)
-- [investigate later](#investigate-later)
+- [do later](#do-later)
 - [other mind maps](#other-mind-maps)
 - [classifications(types) of SQL statements](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_1001.htm)
 
@@ -240,7 +240,7 @@ tasks
                         next()
                     not matched
                         redirect /
-    implement routes
+    OK: implement routes
         OK: /
           GET
               if authed, render index view
@@ -248,7 +248,7 @@ tasks
         OK: sessions DELETE
             destroy session data from store
             redirect /
-        /todos
+        OK: /todos
             OK: POST
                 authed
                     INSERT INTO todos (owner_id, title, completed)
@@ -258,7 +258,7 @@ tasks
             
             OK: DELETE /:id HTTP/1.1
                 DELETE FROM todos WHERE id = req.params.id;
-            PUT /:id HTTP/1.1
+            OK: PUT /:id HTTP/1.1
                 query
                     INSERT INTO todos (fields to update) WHERE id = req.params.id
                 expected req.body
@@ -432,25 +432,30 @@ main issues
 
 ```
 
-## investigate later
-
-Things to investigate later.
+## do later
 
 ```text
 
-How to prevent authorized users of API from triggering database queries against resources that they do not own, without making any prior quries.
+find
+    inconsistencies across codebase
+        logic
+        syntactical styles
+        entity naming
+        structure
+            per-file level
+            directory
 
-How to log SQL statements that node-postgres is sending to PostgreSQL backend
-    pool.query
-        intercept
-        monkey patch
-
-when making queries to PostgreSQL via node-postgres, logs of database activities are not written to /usr/local/var/log/postgres.log. the logs are written when querying from psql.
-    why?
-
-Set-Cookie header set by ?express-session has additional values concatenated to req.sessionID.
-    what is it?
-    how is it generated?
+investigate
+    How to prevent authorized users of API from triggering database queries against resources that they do not own, without making any prior quries.
+    How to log SQL statements that node-postgres is sending to PostgreSQL backend
+        pool.query
+            intercept
+            monkey patch
+    when making queries to PostgreSQL via node-postgres, logs of database activities are not written to /usr/local/var/log/postgres.log. the logs are written when querying from psql.
+        why?
+    Set-Cookie header set by ?express-session has additional values concatenated to req.sessionID.
+        what is it?
+        how is it generated?
 
 ```
 
