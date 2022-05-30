@@ -22,7 +22,8 @@ async function destroy(req, res) {
     const rowsAffected = (await db.query(queryStr, queryParams)).rowCount;
 
     if (rowsAffected)
-      res.status(200).end();
+      res.redirect('/');
+      // res.status(200).end();
     else
       res.status(500).send("We are not certain, but you probably don't own the resource."); // no db record was modified. possible reason is because the requester does not own the resource. db did not find any record that satisfies WHERE clause.
   } catch (error) {
@@ -38,7 +39,8 @@ async function update(req, res) {
     const rowsAffected = (await db.query(queryStr, queryParams)).rowCount;
 
     if (rowsAffected)
-      res.status(201).end();
+      res.redirect('/');
+      // res.status(201).end();
     else
       res.status(500).send("We are not certain, but you probably don't own the resource."); // no db record was modified. possible reason is because the requester does not own the resource. db did not find any record that satisfies WHERE clause.
   } catch (error) {

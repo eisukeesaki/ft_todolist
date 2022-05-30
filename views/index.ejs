@@ -5,7 +5,25 @@
     <title>todo list</title>
   </head>
   <body>
+
     <h1>todos</h1>
+
+    <form action="todos" method="post">
+      <input name="title" placeholder="enter task and hit return">
+    </form>
+
+    <ul>
+      <% todos.forEach(function(todo) { %>
+      <li>
+        <form action="/todos/<%= todo.id %>" method="post">
+          <input name="title" value="<%= todo.title %>">
+          <button form="delete-<%= todo.id %>">delete</button>
+        </form>
+        <form id="delete-<%= todo.id %>" action="/todos/<%= todo.id %>" method="post"></form>
+      </li>
+      <% }); %>
+    </ul>
+
   </body>
 </html>
 
