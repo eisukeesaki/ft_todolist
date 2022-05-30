@@ -2,4 +2,4 @@ curl -v \
   --cookie "" \
   --header "Content-Type: application/json" \
   -d '{"title": "buy oranges", "completed": 0}' \
-  http://localhost:4242/api/v0/todos
+  http://localhost:4242/todos

@@ -4,12 +4,12 @@ const todosRouter = require('./todos/todos.router');
 const usersRouter = require('./users/users.router');
 
 function mountRoutes(express) {
-  const basePath = '/api/v0';
+  const basePath = '/';
 
   express.use(basePath, indexRouter);
-  express.use(`${basePath}/sessions`, sessionsRouter);
-  express.use(`${basePath}/todos`, todosRouter);
-  express.use(`${basePath}/users`, usersRouter);
+  express.use(`${basePath}sessions`, sessionsRouter);
+  express.use(`${basePath}todos`, todosRouter);
+  express.use(`${basePath}users`, usersRouter);
 }
 
 module.exports = mountRoutes;

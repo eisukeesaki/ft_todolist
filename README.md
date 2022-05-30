@@ -317,6 +317,21 @@ How to bulid computer programs:
 
 ```text
 
+UI
+    login
+        heading
+            "sign in"
+        form
+            username
+            password
+    signup
+        heading
+            "sign up"
+        form
+            username
+            password
+    app
+
 UI features
     todo component
         delete todo
