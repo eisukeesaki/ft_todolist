@@ -17,12 +17,42 @@ It is not intended to be comprehensive.
 - [issues](#issues)
 - [investigate later](#investigate-later)
 - [other mind maps](#other-mind-maps)
+- [classifications(types) of SQL statements](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_1001.htm)
 
 ## knowledge base
 
 What this project led me to understand or remind me of.
 
 ```text
+
+SQL
+    statements
+        Data Definition Language = DDL
+            CREATED
+            ALTER
+            DROP
+            GRANT
+            REVOKE
+            ...
+        Data Manipulation Language = DML
+            DELETE
+            INSERT
+            UPDATE
+            limited form
+                SELECT
+                    read only
+            ...
+        Transaction Control
+            ROLLBACK
+            ...
+        Session Control
+            ALTER SESSION
+            SET ROLE
+        System Control
+            ALTER SYSTEM
+        Embedded
+            programming language
+            SQL
 
 database
     transaction
@@ -194,6 +224,8 @@ Some of the link titles are created by me, in order to enhace my accessibility t
 - [RFC on JWT](https://datatracker.ietf.org/doc/html/rfc7519)
 - [ways to implement HTTP session and reasons not to use JWT for it](https://developpaper.com/please-stop-using-jwt-for-session-management-immediately/)
 - [Set-Cookie HTTP response header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
+- [PostgreSQL Database - Command Tag](https://www.postgresql.org/docs/current/protocol-message-formats.html)
+- [interface for PostgreSQL server - pg.Result](https://node-postgres.com/api/result#resultcommand-string)
 
 ## tasks
 
@@ -217,20 +249,28 @@ tasks
             destroy session data from store
             redirect /
         /todos
-            POST
+            OK: POST
                 authed
                     INSERT INTO todos (owner_id, title, completed)
                 !authed
                     respond with unauthorized
                     redirect /
-            /:id
-                PUT
-                    todo resource in payload
-                        exists
-                            INSERT INTO todos (fields to update) WHERE id = req.params.id
-                        does not exist
-                            DELETE FROM todos where id = req.params.id
-        prefix all router instances' names with relevant route names
+            
+            OK: DELETE /:id HTTP/1.1
+                DELETE FROM todos WHERE id = req.params.id;
+            PUT /:id HTTP/1.1
+                query
+                    INSERT INTO todos (fields to update) WHERE id = req.params.id
+                expected req.body
+                    toggle completed
+                        on
+                            { "completed": "on", "title": <identical to previously rendered value>" }
+                        off
+                            { "title": "<itentical to previously rendered value>" }
+                    update title
+                        expected req.body
+                            { "completed": "<itentical to previously rendered value>", "title": "new title" }
+        OK: prefix all router instances' names with relevant route names
     OK: database
         OK: update database name to todolist
         OK: create todos seeder file
@@ -265,6 +305,7 @@ tasks-low-priority
 
 ## issues
 
+How to bulid computer programs:
 - identify the main issue that you are trying to solve
 - define minimum viable solution
 - recursively break down the main issue into smaller, more specific sub-issues until you know the exact code-level solution for a particular issue
@@ -275,6 +316,24 @@ tasks-low-priority
 - repeat
 
 ```text
+
+UI features
+    todo component
+        delete todo
+            DELETE /todos/:id HTTP/1.1
+        toggle completed
+            PUT /todos/:id HTTP/1.1
+                req.body
+                    { "completed": "on", "title": "<as is>" }
+                    { "title": "<as is>" }
+        update title
+            PUT /todos/:id HTTP/1.1
+                req.body
+                    { "completed": "<as is>", "title": "new title" }
+
+CSRF prevention
+    HTML forms
+        CSRF token
 
 issues-specific
     when POSTing form data to /sessions, req.body is undefined
@@ -378,6 +437,9 @@ main issues
 Things to investigate later.
 
 ```text
+
+How to prevent authorized users of API from triggering database queries against resources that they do not own, without making any prior quries.
+
 How to log SQL statements that node-postgres is sending to PostgreSQL backend
     pool.query
         intercept

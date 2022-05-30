@@ -10,5 +10,10 @@ todosRouter.post('/',
   todosController.insert
 );
 
+todosRouter.delete('/:id',
+  isAuthenticated,
+  todosController.destroy
+);
+
 module.exports = todosRouter;
 

@@ -13,7 +13,24 @@ async function insert(req, res) {
   }
 }
 
+async function destroy(req, res) {
+  try {
+    const queryStr = 'DELETE FROM todos WHERE id = $1 AND owner_id = $2';
+    const queryParams = [req.params.id, req.session.uid];
+
+    const rowsAffected = (await db.query(queryStr, queryParams)).rowsAffected;
+
+    if (rowsAffected)
+      res.status(200).end();
+    else
+      res.status(500).send("We are not certain, but you probably don't own the resource."); // no db record was modified. possible reason is because the requester does not own the resource. db did not find any record that satisfies WHERE clause.
+  } catch (error) {
+    console.log(error.stack);
+  }
+}
+
 module.exports = {
-  insert
+  insert,
+  destroy
 }
 
