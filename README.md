@@ -260,7 +260,7 @@ tasks
                 DELETE FROM todos WHERE id = req.params.id;
             OK: PUT /:id HTTP/1.1
                 query
-                    INSERT INTO todos (fields to update) WHERE id = req.params.id
+                    UPDATE todos SET title = $1, completed = $2 WHERE id = $3 AND owner_id = $4
                 expected req.body
                     toggle completed
                         on

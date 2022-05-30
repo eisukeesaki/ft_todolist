@@ -31,14 +31,10 @@ async function destroy(req, res) {
 
 async function update(req, res) {
   try {
-    console.log('executing todosController.update...\n');
-    console.log(`req.params:\n${JSON.stringify(req.params, null, 2)}\n`);
-    console.log(`req.body:\n${JSON.stringify(req.body, null, 2)}\n`);
     const queryStr = 'UPDATE todos SET title = $1, completed = $2 WHERE id = $3 AND owner_id = $4';
     const queryParams = [req.body.title, req.body.completed, req.params.id, req.session.uid];
 
     const rowsAffected = (await db.query(queryStr, queryParams)).rowCount;
-    console.log(`rowsAfected:\n${JSON.stringify(rowsAffected, null, 2)}\n`);
 
     if (rowsAffected)
       res.status(201).end();
