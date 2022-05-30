@@ -10,21 +10,21 @@ todosRouter.post('/',
   todosController.insert
 );
 
-todosRouter.post('/:id',
-  isAuthenticated,
-  todosController.updateOrDestroy
-); // not used by server-side rendered UI
-
-module.exports = todosRouter;
+// todosRouter.put('/:id',
+//   isAuthenticated,
+//   todosController.update
+// ); // must make HTTP client(e.g Axios) send requests to use this route
 
 // todosRouter.delete('/:id',
 //   isAuthenticated,
 //   todosController.destroy
-// ); // not used by server-side rendered UI
+// ); // must make HTTP client(e.g Axios) send requests to use this route 
 
-// todosRouter.put('/:id',
-//   isAuthenticated,
-//   todosController.update
-// ); // not used by server-side rendered UI
+todosRouter.post('/:id',
+  isAuthenticated,
+  todosController.updateOrDestroy
+); // dirty workaround to trigger DELETE operation using HTML forms.
+
+module.exports = todosRouter;
 
 

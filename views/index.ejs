@@ -7,8 +7,12 @@
   <body>
 
     <h1>todos</h1>
+    
+    <form action="/sessions/delete" method="post">
+      <button type="submit">logout</button>
+    </form>
 
-    <form action="todos" method="post">
+    <form action="/todos" method="post">
       <input name="title" placeholder="enter task and hit return">
     </form>
 

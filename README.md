@@ -345,7 +345,7 @@ UI
                         form action=/todos/<this todo's id> method=post
                             input type=checkbox name=completed
                                 ?submit onchage
-                        form action=/todos/<this todo's id> method=delete
+                        form action=/todos/<this todo's id> method=post
                         
         
 

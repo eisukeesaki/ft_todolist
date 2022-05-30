@@ -7,10 +7,15 @@ sessionsRouter.post('/',
   sessionsController.createSession
 );
 
-sessionsRouter.delete('/',
+// sessionsRouter.delete('/',
+//   sessionsController.isAuthenticated,
+//   sessionsController.destroySession
+// ); // must make HTTP client(e.g Axios) send requests to use this route
+
+sessionsRouter.post('/delete',
   sessionsController.isAuthenticated,
   sessionsController.destroySession
-);
+); // dirty workaround to trigger DELETE operation using HTML forms. /delete violates REST constraints sincie it's not a noun
 
 module.exports = sessionsRouter;
 
