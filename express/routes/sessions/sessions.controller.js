@@ -10,7 +10,7 @@ async function authenticate(req, res, next) {
     res.locals.uid = record.id; // TODO: identify risks of exposing id to view engine
     next();
   } else {
-      res.redirect(401, '/');
+      res.status(401).render('login');
     }
 }
 
@@ -23,7 +23,7 @@ function createSession(req, res) {
     req.session.save((err) => {
       if (err) next(err);
 
-      res.redirect(200, '/');
+      res.redirect('/');
     });
   });
 }
@@ -32,14 +32,14 @@ function destroySession(req, res) {
   req.session.destroy((err) => {
     if (err) next(err);
 
-    res.redirect(200, '/');
+    res.redirect('/');
   });
 }
 
 function isAuthenticated(req, res, next) {
   if (req.session.user) next();
   else {
-    res.status(401).render('login');
+    res.render('login');
   }
 }
 
