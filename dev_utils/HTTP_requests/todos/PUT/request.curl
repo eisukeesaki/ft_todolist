@@ -1,0 +1,6 @@
+curl -v \
+  -X PUT \
+  -d '{"title": "placeholder", "completed": 0}' \
+  --header "Content-Type: application/json" \
+  --cookie "" \
+  http://localhost:4242/api/v0/todos/1
