@@ -45,9 +45,17 @@ async function update(req, res) {
   }
 }
 
+function updateOrDestroy(req, res) {
+  if (Object.keys(req.body).length != 0)
+    update(req, res);
+  else
+    destroy(req, res);
+}
+
 module.exports = {
   insert,
-  destroy,
-  update
+  updateOrDestroy
+  // destroy,
+  // update
 }
 

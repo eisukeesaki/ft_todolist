@@ -1,4 +1,4 @@
 curl -v \
-    --header "Content-Type: application/json" \
-    -d '{"email": "asuka@nerv.jp", "password": "letasukain"}' \
-    http://localhost:4242/sessions
+  --header "Content-Type: application/json" \
+  -d '{"email": "asuka@nerv.jp", "password": "letasukain"}' \
+  http://localhost:4242/sessions

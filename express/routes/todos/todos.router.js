@@ -12,18 +12,19 @@ todosRouter.post('/',
 
 todosRouter.post('/:id',
   isAuthenticated,
-  todosController.destroy
-);
+  todosController.updateOrDestroy
+); // not used by server-side rendered UI
+
+module.exports = todosRouter;
 
 // todosRouter.delete('/:id',
 //   isAuthenticated,
 //   todosController.destroy
 // ); // not used by server-side rendered UI
 
-todosRouter.put('/:id',
-  isAuthenticated,
-  todosController.update
-); // not used by server-side rendered UI
+// todosRouter.put('/:id',
+//   isAuthenticated,
+//   todosController.update
+// ); // not used by server-side rendered UI
 
-module.exports = todosRouter;
 
