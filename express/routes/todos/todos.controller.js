@@ -7,7 +7,8 @@ async function insert(req, res) {
 
     await db.query(queryStr, queryParams);
     // TODO: handle case result.rowCount == 0
-    res.status(201).end();
+    res.redirect('/');
+    // res.status(201).end();
   } catch (error) {
     console.log(error.stack);
   }

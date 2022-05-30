@@ -229,6 +229,7 @@ Some of the link titles are created by me, in order to enhace my accessibility t
 - [Set-Cookie HTTP response header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
 - [PostgreSQL Database - Command Tag](https://www.postgresql.org/docs/current/protocol-message-formats.html)
 - [interface for PostgreSQL server - pg.Result](https://node-postgres.com/api/result#resultcommand-string)
+- [Why are there no PUT and DELETE methods on HTML forms?](https://softwareengineering.stackexchange.com/questions/114156/why-are-there-no-put-and-delete-methods-on-html-forms)
 
 ## tasks
 

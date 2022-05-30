@@ -4,6 +4,7 @@ const { isAuthenticated } = require('./sessions/sessions.controller');
 
 indexRouter.get('/',
   isAuthenticated,
+  indexController.getAllTodos,
   indexController.renderIndex
 ); // TODO: use conditional statements to render either login or app
 
