@@ -18,7 +18,7 @@ async function destroy(req, res) {
     const queryStr = 'DELETE FROM todos WHERE id = $1 AND owner_id = $2';
     const queryParams = [req.params.id, req.session.uid];
 
-    const rowsAffected = (await db.query(queryStr, queryParams)).rowsAffected;
+    const rowsAffected = (await db.query(queryStr, queryParams)).rowCount;
 
     if (rowsAffected)
       res.status(200).end();
