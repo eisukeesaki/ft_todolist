@@ -16,9 +16,8 @@ module.exports = mountRoutes;
 
 /*
 
-    init and load all routers to this scope
-
     define route mounter function
+        init and load all routers to this scope
 
 */
 

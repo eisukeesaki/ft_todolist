@@ -34,8 +34,10 @@ module.exports = express;
 /*
 
     mount middlewares onto express instance
+        session middleware
         request body parser
         routes
+    configure view engine
 
 */
 

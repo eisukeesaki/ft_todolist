@@ -16,6 +16,8 @@ global.stringifyJSON = require('json-stringify-safe'); // debug
 
     init express instance
 
+    create database connection pool
+
     start listening to requests
 
 */

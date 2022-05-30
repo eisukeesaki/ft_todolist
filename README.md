@@ -21,7 +21,7 @@ It is not intended to be comprehensive.
 
 ## knowledge base
 
-What this project led me to understand or remind me of.
+What this project led me to understand or reminded me of.
 
 ```text
 
