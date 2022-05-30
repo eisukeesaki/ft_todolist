@@ -1,0 +1,4 @@
+curl -v \
+  -X POST \
+  --cookie "" \
+  http://localhost:4242/todos/7

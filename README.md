@@ -25,6 +25,9 @@ What this project led me to understand or remind me of.
 
 ```text
 
+HTML
+    human interface of HTTP
+
 SQL
     statements
         Data Definition Language = DDL
@@ -330,7 +333,20 @@ UI
         form
             username
             password
-    app
+    index
+        components
+            new-task
+                form action=/todos method=post
+                    input name=title
+            todo list
+                ul
+                    li
+                        form action=/todos/<this todo's id> method=post
+                            input type=checkbox name=completed
+                                ?submit onchage
+                        form action=/todos/<this todo's id> method=delete
+                        
+        
 
 UI features
     todo component
