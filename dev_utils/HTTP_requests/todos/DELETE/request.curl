@@ -1,0 +1,4 @@
+curl -v \
+  --cookie "" \
+  -X DELETE \
+  http://localhost:4242/api/v0/todos/1
