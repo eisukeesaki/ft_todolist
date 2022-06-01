@@ -7,7 +7,36 @@ This file is like a trace of my mind. I maintain it for several purposes.
   - to use it as a knowledge base
   - to quickly remember the status of the project
 
-It is not intended to be comprehensive.
+I use mind maps to express/represent my understanding of things. The mind map below describes my style of mind mapping.
+
+```text
+
+my mind maps
+    collection
+        nodes
+            representations of relations
+                horizontal arrangement
+                    parent node
+                        contains child
+                        abstracts child
+                        owns child
+                        consists of child
+                    child node
+                        is contained within parent
+                        specifies parent
+                        is owned by parent
+                        constitues parent
+                vertical arrangement
+                    node above
+                        more abstract
+                    node below
+                        more specific
+                    not always considred
+                        just like in this case
+
+```
+
+The mind maps are not intended to be comprehensive nor complete.
 
 ## Table of contents
 
