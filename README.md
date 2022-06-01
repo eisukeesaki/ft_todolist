@@ -36,7 +36,7 @@ my mind maps
 
 ```
 
-The mind maps are not intended to be comprehensive nor complete.
+The mind maps are not intended to be comprehensive nor complete. They are like snapshops of my understanding of things at a particular point in time, from a particular point of view.
 
 ## Table of contents
 
