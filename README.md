@@ -7,7 +7,7 @@ This file is like a trace of my mind. I maintain it for several purposes.
   - to use it as a knowledge base
   - to quickly remember the status of the project
 
-I use mind maps to express/represent my understanding of things. The mind map below describes my style of mind mapping.
+I use mind maps to express, represent and store my understanding of things. The mind map below describes my style of mind mapping.
 
 ```text
 
